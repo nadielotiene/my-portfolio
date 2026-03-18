@@ -1,0 +1,38 @@
+---
+interface Props {
+  title: string;
+  emoji: string;
+  description: string;
+  stack: readonly string[];
+  badge: string;
+  github: string;
+  live: string | null;
+}
+const { title, emoji, description, stack, badge, github, live } = Astro.props;
+---
+
+<div class="card">
+  <div class="card-top">
+    <span class="icon">{emoji}</span>
+    <span class={`badge ${badge === "Live" ? "badge-live" : ""}`}>
+      {badge === "Live" ? "● Live" : badge}
+    </span>
+  </div>
+  <h3>{title}</h3>
+  <p>{description}</p>
+  <footer>
+    <div class="stack">
+      {stack.map((s) => <span class="chip">{s}</span>)}
+    </div>
+    <div class="links">
+      {
+        live && (
+          <a href={live} target="_blank">
+            Live →
+          </a>
+        )
+      }
+      <a href={github} target="_blank">GitHub →</a>
+    </div>
+  </footer>
+</div>

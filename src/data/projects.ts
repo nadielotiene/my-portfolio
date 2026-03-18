@@ -1,0 +1,38 @@
+export const projects = [
+  {
+    title: "Recipe App",
+    emoji: "🍽️",
+    description: "Full-stack recipe manager with user auth, REST API backend, and clean browsing UX.",
+    stack: ["React", "Node", "SQL"],
+    badge: "Full-stack",
+    github: "",
+    live: null,
+  },
+  {
+    title: "Movie List",
+    emoji: "🎬",
+    description: "Search and track movies via OMDB API. Saves favorites, deployed live on Vercel.",
+    stack: ["React", "OMDB API", "Vercel"],
+    badge: "Live",
+    github: "",
+    live: "",
+  },
+  {
+    title: "Weather App",
+    emoji: "🌤️",
+    description: "Real-time weather using browser Geolocation API - autodetects and displays local conditions.",
+    stack: ["React", "Geolocation", "Weather API"],
+    badge: "Full-stack",
+    github: "",
+    live: null,
+  },
+  {
+    title: "Dashboard",
+    emoji: "📊",
+    description: "Data dashboard with charts and KPI cards — demonstrates state management and data visualization.",
+    stack: ["Unsplash API", "Geolocation", "Weather API"],
+    badge: "UI/Data",
+    github: "",
+    live: null,
+  },
+] as const;

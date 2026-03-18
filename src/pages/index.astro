@@ -1,11 +1,37 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { projects } from "../data/projects";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Kenneth Velázquez - Developer">
+  <section class="hero">
+    <div>
+      <span class="tag">Full-stack developer</span>
+      <h1>Building things<br />for the <em>web.</em></h1>
+      <p>
+        I create clean, performant webv apps - from polished UIs to full-stack
+        products.
+      </p>
+      <div class="actions">
+        <a href="#work" class="btn-primary">View projects</a>
+        <a href="mailto:kenny.arcelay@gmail.com" class="btn-secondary"
+          >Get in touch</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="section-header">
+      <span class="label">Selected work</span>
+      <span class="count">04 projects</span>
+    </div>
+    <div class="grid">
+      {projects.map((p) => <ProjectCard {...p} />)}
+    </div>
+  </section>
 </Layout>
