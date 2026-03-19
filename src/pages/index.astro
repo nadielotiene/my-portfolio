@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import Nav from "../components/Nav.astro";
 import ProjectCard from "../components/ProjectCard.astro";
+import About from "../components/About.astro";
+import Footer from "../components/Footer.astro";
 import { projects } from "../data/projects";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -38,6 +40,9 @@ import { projects } from "../data/projects";
         {projects.map((p) => <ProjectCard {...p} />)}
       </div>
     </section>
+
+    <About />
+    <Footer />
   </main>
 </Layout>
 
@@ -79,7 +84,7 @@ import { projects } from "../data/projects";
     margin-bottom: 1.5rem;
   }
 
-  .action {
+  .actions {
     display: flex;
     gap: 0.75rem;
   }

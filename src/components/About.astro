@@ -1,0 +1,114 @@
+---
+const skills = [
+  { name: "React", level: 90 },
+  { name: "JavaScript", level: 85 },
+  { name: "HTML/CSS", level: 92 },
+  { name: "Express", level: 70 },
+  { name: "Astro", level: 60 },
+];
+---
+
+<section id="about">
+  <div class="about-grid">
+    <span class="label">About</span>
+    <h2>A bit about me.</h2>
+    <p>
+      I'm a full-stack developer who builds clean, performant web apps - from
+      polished React UI's to backend API's with real users. I care about good
+      code, good UX, and shipping things that work.
+    </p>
+    <p>
+      Currently open to new opportunities. Based in Puerto Rico, working
+      remotely.
+    </p>
+  </div>
+
+  <div class="skills">
+    <span class="label">Skills</span>
+    {
+      skills.map((skill) => (
+        <div class="skill-row">
+          <span class="skill-name">{skill.name}</span>
+          <div class="bar-bg">
+            <div class="bar-fill" style={`width: ${skill.level}%`} />
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  section {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 0.5px solid var(--color-border);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-faint);
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  h2 {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 14px;
+    color: var(--color-muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .skill-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .skill-name {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--color-faint);
+    width: 90px;
+    flex-shrink: 0;
+  }
+
+  .bar-bg {
+    flex: 1;
+    height: 3px;
+    background: var(--color-border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    background: var(--color-text);
+    border-radius: 2px;
+  }
+
+  @media (max-width: 600px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>

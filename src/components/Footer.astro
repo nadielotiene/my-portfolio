@@ -1,0 +1,106 @@
+---
+const links = [
+	{ label: "Github", href: "" },
+	{ label: "LinkedIn", href: "" },
+	{ label: "Email", href: "mailto:kenny.arcelay@gmail.com" },
+];
+---
+
+<footer id="contact">
+	<div class="footer-inner">
+		<div class="cta">
+			<h2>Let's work together.</h2>
+			<p>Open to full-time roles and freelance projects.</p>
+			<a href="mailto:kenny.arcelay@gmail.com" class="email-btn"
+				>kenny.arcelay@gmail.com →</a
+			>
+		</div>
+		<nav class="footer-links">
+			{
+				links.map((link) => (
+					<a href={link.href} target="_blank">
+						{link.label}
+					</a>
+				))
+			}
+		</nav>
+	</div>
+	<p class="copyright">© {new Date().getFullYear()} Kenny. Built with Astro.</p>
+</footer>
+
+<style>
+	footer {
+		margin-top: 4rem;
+		padding-top: 2rem;
+		border-top: 0.5px solid var(--color-border);
+	}
+
+	.footer-inner {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 2rem;
+		margin-bottom: 2rem;
+	}
+
+	h2 {
+		font-family: var(--font-serif);
+		font-size: 28px;
+		line-height: 1.15;
+		margin-bottom: 0.5rem;
+	}
+
+	p {
+		font-size: 14px;
+		color: var(--color-muted);
+		margin-bottom: 1rem;
+	}
+
+	.email-btn {
+		font-family: var(--font-mono);
+		font-size: 13px;
+		font-weight: 500;
+		border-bottom: 1px solid var(--color-text);
+		padding-bottom: 2px;
+		transition: opacity 0.15s;
+	}
+
+	.email-btn:hover {
+		opacity: 0.5;
+	}
+
+	.footer-links {
+		display: flex;
+		flex-directioin: column;
+		align-items: flex-end;
+		gap: 0.5rem;
+		padding-top: 0.25rem;
+	}
+
+	.footer-links a {
+		font-family: var(--font-mono);
+		font-size: 12px;
+		color: var(--color-faint);
+		transition: color 0.15s;
+	}
+
+	.footer-links a:hover {
+		color: var(--color-text);
+	}
+
+	.copyright {
+		font-family: var(--font-mono);
+		font-size: 11px;
+		color: var(--color-faint);
+		margin: 0;
+	}
+
+	@media (max-width: 600px) {
+		.footer-inner {
+			flex-direction: column;
+		}
+		.footer-links {
+			align-items: flex-start;
+		}
+	}
+</style>
