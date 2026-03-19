@@ -9,17 +9,20 @@ interface Props {
   live: string | null;
 }
 const { title, emoji, description, stack, badge, github, live } = Astro.props;
+const isLive = badge === "Live";
 ---
 
 <div class="card">
   <div class="card-top">
     <span class="icon">{emoji}</span>
-    <span class={`badge ${badge === "Live" ? "badge-live" : ""}`}>
-      {badge === "Live" ? "● Live" : badge}
+    <span class={isLive ? "badge badge-live" : "badge"}>
+      {isLive ? "● Live" : badge}
     </span>
   </div>
+
   <h3>{title}</h3>
   <p>{description}</p>
+
   <footer>
     <div class="stack">
       {stack.map((s) => <span class="chip">{s}</span>)}
@@ -36,3 +39,91 @@ const { title, emoji, description, stack, badge, github, live } = Astro.props;
     </div>
   </footer>
 </div>
+
+<style>
+  .card {
+    background: var(--color-bg);
+    border: 0.5px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: background 0.15s;
+  }
+
+  .card:hover {
+    background: var(--color-bg-hover);
+  }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .icon {
+    font-size: 24px;
+  }
+
+  .badge {
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    border: 0.5px solid var(--color-border);
+    color: var(--color-faint);
+  }
+
+  .badge-live {
+    border-color: var(--color-live-border);
+    color: var(--color-live-text);
+  }
+
+  h3 {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    line-height: 1.2;
+  }
+
+  p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--color-muted);
+    flex: 1;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.75rem;
+    border-top: 0.5px solid var(--color-border);
+  }
+
+  .stack {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+
+  .chip {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    padding: 2px 7px;
+    background: var(--color-bg-chip);
+    color: var(--color-muted);
+    border-radius: 2px;
+  }
+
+  .links {
+    display: flex;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--color-faint);
+  }
+
+  .links a:hover {
+    color: var(--color-text);
+  }
+</style>
