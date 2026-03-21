@@ -1,40 +1,42 @@
 ---
 const skills = [
-  { name: "React", level: 90 },
-  { name: "JavaScript", level: 85 },
-  { name: "HTML/CSS", level: 92 },
-  { name: "Express", level: 70 },
-  { name: "Astro", level: 60 },
+  { category: "Frontend", items: ["React", "HTML/CSS", "JavaScript", "Astro"] },
+  { category: "Backend", items: ["Express", "Node,js", "SQL"] },
+  { category: "Tools", items: ["Git", "Github", "Render", "Vercel"] },
 ];
 ---
 
 <section id="about">
   <div class="about-grid">
-    <span class="label">About</span>
-    <h2>A bit about me.</h2>
-    <p>
-      I'm a full-stack developer who builds clean, performant web apps - from
-      polished React UI's to backend API's with real users. I care about good
-      code, good UX, and shipping things that work.
-    </p>
-    <p>
-      Currently open to new opportunities. Based in Puerto Rico, working
-      remotely.
-    </p>
-  </div>
+    <div class="bio">
+      <span class="label">About</span>
+      <h2>A bit about me.</h2>
+      <p>
+        I'm a full-stack developer who builds clean, performant web apps - from
+        polished React UI's to backend API's with real users. I care about good
+        code, good UX, and shipping things that work.
+      </p>
+      <p>
+        Currently open to new opportunities. Based in Puerto Rico, working
+        remotely.
+      </p>
+    </div>
 
-  <div class="skills">
-    <span class="label">Skills</span>
-    {
-      skills.map((skill) => (
-        <div class="skill-row">
-          <span class="skill-name">{skill.name}</span>
-          <div class="bar-bg">
-            <div class="bar-fill" style={`width: ${skill.level}%`} />
+    <div class="skills">
+      <span class="label">Skills</span>
+      {
+        skills.map((group) => (
+          <div class="skill-group">
+            <span class="category">{group.category}</span>
+            <div class="tags">
+              {group.items.map((item) => (
+                <span class="tag">{item}</span>
+              ))}
+            </div>
           </div>
-        </div>
-      ))
-    }
+        ))
+      }
+    </div>
   </div>
 </section>
 
@@ -76,33 +78,39 @@ const skills = [
     margin-bottom: 0.75rem;
   }
 
-  .skill-row {
-    display: flex;
-    align-items: center;
+  .skill-group {
+    display: grid;
+    grid-template-columns: 80px 1fr;
     gap: 0.75rem;
-    margin-bottom: 0.6rem;
+    align-items: start;
+    padding: 0.6rem 0;
+    border-bottom: 0.5px solid var(--color-border);
   }
 
-  .skill-name {
+  .skill-group-child {
+    border-bottom: none;
+  }
+
+  .category {
     font-family: var(--font-mono);
     font-size: 11px;
     color: var(--color-faint);
-    width: 90px;
-    flex-shrink: 0;
+    padding-top: 3px;
   }
 
-  .bar-bg {
-    flex: 1;
-    height: 3px;
-    background: var(--color-border);
-    border-radius: 2px;
-    overflow: hidden;
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
   }
 
-  .bar-fill {
-    height: 100%;
-    background: var(--color-text);
-    border-radius: 2px;
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    padding: 3px 10px;
+    border: 0.5px solid var(--color-border);
+    border-radius: 3px;
+    color: var(--color-muted);
   }
 
   @media (max-width: 600px) {
