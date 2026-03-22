@@ -1,15 +1,18 @@
 ---
 const skills = [
   { category: "Frontend", items: ["React", "HTML/CSS", "JavaScript", "Astro"] },
-  { category: "Backend", items: ["Express", "Node,js", "SQL"] },
-  { category: "Tools", items: ["Git", "Github", "Render", "Vercel"] },
+  { category: "Backend", items: ["Express", "Node.js", "SQL"] },
+  {
+    category: "Tools",
+    items: ["Command Line", "Git", "Github", "Render", "Vercel"],
+  },
 ];
 ---
 
 <section id="about">
   <div class="about-grid">
     <div class="bio">
-      <span class="label">About</span>
+      <span class="label">// About</span>
       <h2>A bit about me.</h2>
       <p>
         I'm a full-stack developer who builds clean, performant web apps - from
@@ -23,7 +26,7 @@ const skills = [
     </div>
 
     <div class="skills">
-      <span class="label">Skills</span>
+      <span class="label">// Skills</span>
       {
         skills.map((group) => (
           <div class="skill-group">
@@ -70,10 +73,11 @@ const skills = [
     font-size: 28px;
     line-height: 1.15;
     margin-bottom: 1rem;
+    color: var(--color-text);
   }
 
   p {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--color-muted);
     margin-bottom: 0.75rem;
   }
@@ -111,6 +115,7 @@ const skills = [
     border: 0.5px solid var(--color-border);
     border-radius: 3px;
     color: var(--color-muted);
+    background: var(--color-chip-bg);
   }
 
   @media (max-width: 600px) {

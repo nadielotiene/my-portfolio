@@ -42,18 +42,19 @@ const isLive = badge === "Live";
 
 <style>
   .card {
-    background: var(--color-bg);
-    border: 0.5px solid var(--color-border);
+    background: var(--color-bg-card);
+    border: 0.5px solid rgba(255, 255, 255, 0.7);
     border-radius: var(--radius-lg);
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
     transition: background 0.15s;
+    backdrop-filter: blur(4px);
   }
 
   .card:hover {
-    background: var(--color-bg-hover);
+    background: var(--color-bg-card-hover);
   }
 
   .card-top {
@@ -67,27 +68,28 @@ const isLive = badge === "Live";
   }
 
   .badge {
-    font-family: "DM Mono", monospace;
+    font-family: var(--font-mono);
     font-size: 10px;
     padding: 3px 8px;
     border-radius: 3px;
     border: 0.5px solid var(--color-border);
-    color: var(--color-faint);
+    color: var(--color-muted);
   }
 
   .badge-live {
-    border-color: var(--color-live-border);
-    color: var(--color-live-text);
+    border-color: rgba(255, 127, 110, 0.4);
+    color: var(--color-accent);
   }
 
   h3 {
     font-family: var(--font-serif);
     font-size: 22px;
     line-height: 1.2;
+    color: var(--color-text);
   }
 
   p {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.6;
     color: var(--color-muted);
     flex: 1;
@@ -111,7 +113,7 @@ const isLive = badge === "Live";
     font-family: var(--font-mono);
     font-size: 10px;
     padding: 2px 7px;
-    background: var(--color-bg-chip);
+    background: var(--color-chip-bg);
     color: var(--color-muted);
     border-radius: 2px;
   }
@@ -120,10 +122,10 @@ const isLive = badge === "Live";
     display: flex;
     font-family: var(--font-mono);
     font-size: 11px;
-    color: var(--color-faint);
+    color: var(--color-accent);
   }
 
   .links a:hover {
-    color: var(--color-text);
+    opacity: 0.7;
   }
 </style>

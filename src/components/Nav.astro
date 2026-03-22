@@ -7,7 +7,7 @@ const links = [
 ---
 
 <nav>
-  <a href="/" class="logo">Kenny.dev</a>
+  <a href="/" class="logo">Kenneth Velázquez</a>
   <ul>
     {
       links.map((link) => (
@@ -33,6 +33,7 @@ const links = [
   .logo {
     font-family: var(--font-serif);
     font-size: 20px;
+    color: #fff;
   }
 
   ul {
@@ -43,13 +44,14 @@ const links = [
   }
 
   ul a {
-    font-size: 13px;
+    font-family: var(--font-mono);
+    font-size: 12px;
     font-weight: 500;
-    color: var(--color-faint);
+    color: rgba(255, 255, 255, 0.5);
     transition: color 0.15s;
   }
 
   ul a:hover {
-    color: var(--color-text);
+    color: #fff;
   }
 </style>

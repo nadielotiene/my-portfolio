@@ -5,17 +5,13 @@ import ProjectCard from "../components/ProjectCard.astro";
 import About from "../components/About.astro";
 import Footer from "../components/Footer.astro";
 import { projects } from "../data/projects";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout title="Kenneth Velázquez - Developer">
-  <main>
-    <Nav />
-
-    <section class="hero">
-      <div>
+  <div class="hero-band">
+    <div class="inner">
+      <Nav />
+      <section class="hero">
         <span class="tag">Full-stack developer</span>
         <h1>Building things<br />for the <em>web.</em></h1>
         <p>
@@ -28,12 +24,14 @@ import { projects } from "../data/projects";
             >Get in touch</a
           >
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
+  </div>
 
+  <main class="inner">
     <section id="work">
       <div class="section-header">
-        <span class="label">Selected work</span>
+        <span class="label">// Selected work</span>
         <span class="count">04 projects</span>
       </div>
       <div class="grid">
@@ -47,21 +45,29 @@ import { projects } from "../data/projects";
 </Layout>
 
 <style>
-  main {
+  .hero-band {
+    background: var(--gradient-sky);
+    /* padding-bottom: 4rem; */
+  }
+  .inner {
     max-width: 860px;
     margin: 0 auto;
     padding: 0 1.5rem 4rem;
   }
 
+  main.inner {
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+  }
+
   .hero {
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
   }
 
   .tag {
     font-family: var(--font-mono);
     font-size: 11px;
-    font-weight: 500;
-    color: var(--color-faint);
+    color: var(--color-bg-card);
     letter-spacing: 0.08em;
     text-transform: uppercase;
     display: block;
@@ -73,13 +79,19 @@ import { projects } from "../data/projects";
     font-size: 52px;
     line-height: 1.08;
     letter-spacing: -1.5px;
+    color: #fff;
     margin-bottom: 1.25rem;
   }
 
+  h1 em {
+    font-style: italic;
+    color: var(--color-accent);
+  }
+
   .hero p {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 300;
-    color: var(--color-muted);
+    color: var(--color-bg);
     max-width: 420px;
     margin-bottom: 1.5rem;
   }
@@ -91,7 +103,7 @@ import { projects } from "../data/projects";
 
   .btn-primary,
   .btn-secondary {
-    font-family: var(--font-serif);
+    font-family: var(--font-mono);
     font-size: 12px;
     font-weight: 500;
     padding: 10px 20px;
@@ -100,13 +112,21 @@ import { projects } from "../data/projects";
   }
 
   .btn-primary {
-    background: var(--color-text);
-    color: var(--color-bg);
+    background: var(--color-accent);
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    opacity: 0.8;
   }
 
   .btn-secondary {
-    border: 0.5px solid var(--color-border);
-    color: var(--color-text);
+    border: 0.5px solid var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  .btn-secondary:hover {
+    opacity: 0.6;
   }
 
   .section-header {
@@ -117,7 +137,7 @@ import { projects } from "../data/projects";
   }
 
   .label {
-    font-family: var(--font-serif);
+    font-family: var(--font-mono);
     font-size: 11px;
     font-weight: 500;
     letter-spacing: 0.08em;
@@ -126,9 +146,10 @@ import { projects } from "../data/projects";
   }
 
   .count {
-    font-family: var(--font-serif);
+    font-family: var(--font-mono);
     font-size: 11px;
-    color: #bbb;
+    color: var(--color-faint);
+    /* opacity: 0.6; */
   }
 
   .grid {
