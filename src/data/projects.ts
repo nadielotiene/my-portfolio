@@ -2,6 +2,7 @@ export const projects = [
   {
     title: "Recipe App",
     emoji: "🍽️",
+    image: "/images/recipes.webp",
     description: "Full-stack recipe manager with user auth, REST API backend, and clean browsing UX.",
     stack: ["React", "Express", "SQLite"],
     badge: "Full-stack",
@@ -11,6 +12,7 @@ export const projects = [
   {
     title: "Movie List",
     emoji: "🎬",
+    image: "/images/movies.webp",
     description: "Search and track movies via OMDB API. Saves favorites, deployed live on Vercel.",
     stack: ["React", "OMDB API", "Vercel"],
     badge: "Live",
@@ -20,6 +22,7 @@ export const projects = [
   {
     title: "Weather App",
     emoji: "🌤️",
+    image: "/images/weather.webp",
     description: "Real-time weather using browser Geolocation API - autodetects and displays local conditions.",
     stack: ["React", "Geolocation", "Weather API"],
     badge: "Full-stack",
@@ -29,6 +32,7 @@ export const projects = [
   {
     title: "Dashboard",
     emoji: "📊",
+    image: "/images/dashboard.webp",
     description: "Data dashboard with charts and KPI cards — demonstrates state management and data visualization.",
     stack: ["Unsplash API", "Geolocation", "Weather API"],
     badge: "UI/Data",

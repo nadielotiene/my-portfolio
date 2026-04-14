@@ -21,7 +21,10 @@
     --color-bg-card: rgba(255, 255, 255, 0.6);
     --color-bg-card-hover: rgba(255, 255, 255, 0.85);
     --color-chip-bg: rgba(255, 255, 255, 0.7);
+
     --color-accent: #ff7f6e;
+    /* --color-accent: #ffc844; */
+    /* --color-accent: #4dffd2; */
 
     --gradient-sky: linear-gradient(
         180deg,

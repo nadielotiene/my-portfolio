@@ -7,21 +7,29 @@ interface Props {
   badge: string;
   github: string;
   live: string | null;
+  image: string;
 }
-const { title, emoji, description, stack, badge, github, live } = Astro.props;
+const { title, emoji, description, stack, badge, github, live, image } =
+  Astro.props;
 const isLive = badge === "Live";
 ---
 
 <div class="card">
-  <div class="card-top">
-    <span class="icon">{emoji}</span>
+  <div class="card-image">
+    <img src={image} alt={`${title} screenshot`} />
+    <!-- <span class="icon">{emoji}</span> -->
     <span class={isLive ? "badge badge-live" : "badge"}>
       {isLive ? "● Live" : badge}
     </span>
   </div>
 
-  <h3>{title}</h3>
-  <p>{description}</p>
+  <div class="card-body">
+    <div class="card-header">
+      <span class="icon">{emoji}</span>
+      <h3>{title}</h3>
+    </div>
+    <p>{description}</p>
+  </div>
 
   <footer>
     <div class="stack">
@@ -43,42 +51,71 @@ const isLive = badge === "Live";
 <style>
   .card {
     background: var(--color-bg-card);
-    border: 0.5px solid rgba(255, 255, 255, 0.7);
+    border: 0.5px solid rgba(255, 255, 255, 0.9);
     border-radius: var(--radius-lg);
-    padding: 1.5rem;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
     transition: background 0.15s;
     backdrop-filter: blur(4px);
+    /* padding: 1.5rem; */
+    /* gap: 0.75rem; */
   }
 
   .card:hover {
     background: var(--color-bg-card-hover);
   }
 
-  .card-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .card-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
   }
 
-  .icon {
-    font-size: 24px;
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
   }
 
   .badge {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
     font-family: var(--font-mono);
     font-size: 10px;
     padding: 3px 8px;
     border-radius: 3px;
+    background: rgba(255, 255, 255, 0.85);
     border: 0.5px solid var(--color-border);
     color: var(--color-muted);
+    backdrop-filter: blur(4px);
   }
 
   .badge-live {
     border-color: rgba(255, 127, 110, 0.4);
     color: var(--color-accent);
+  }
+
+  .card-body {
+    padding: 1.25rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex: 1;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .icon {
+    fonr-size: 22px;
   }
 
   h3 {
@@ -101,6 +138,7 @@ const isLive = badge === "Live";
     align-items: center;
     padding-top: 0.75rem;
     border-top: 0.5px solid var(--color-border);
+    padding: 1.25rem 1.5rem 1.5rem 1.5rem;
   }
 
   .stack {
@@ -114,15 +152,23 @@ const isLive = badge === "Live";
     font-size: 10px;
     padding: 2px 7px;
     background: var(--color-chip-bg);
+    border: 0.5px solid var(--color-border);
     color: var(--color-muted);
     border-radius: 2px;
   }
 
   .links {
-    display: flex;
+    /* display: flex; */
+    gap: 0.75rem;
+    /* flex-direction: column; */
     font-family: var(--font-mono);
     font-size: 11px;
     color: var(--color-accent);
+  }
+
+  .links > a {
+    margin-left: 1rem;
+    white-space: nowrap;
   }
 
   .links a:hover {
