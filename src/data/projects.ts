@@ -1,15 +1,5 @@
 export const projects = [
   {
-    title: "Kenbnb",
-    emoji: "🏠",
-    image: "/images/kenbnb.webp",
-    description: "A full-stack booking platform built with React, Node.js, Express, Prisma and PostgreSQL. Features JWT auth, real-time search, and double-booking prevention.",
-    stack: ["React", "Express", "Prisma", "PostgreSQL"],
-    badge: "Full-stack",
-    github: "https://github.com/nadielotiene/kenbnb",
-    live: "https://kenbnb.vercel.app",
-  },
-  {
     title: "Jobtrackr",
     emoji: "🔍",
     image: "/images/jobtrackr.webp",
@@ -18,6 +8,16 @@ export const projects = [
     badge: "Full-stack",
     github: "https://github.com/nadielotiene/jobtrackr-app",
     live: "https://jobtrackr-ebon.vercel.app/",
+  },
+  {
+    title: "Kenbnb",
+    emoji: "🏠",
+    image: "/images/kenbnb.webp",
+    description: "A full-stack booking platform built with React, Node.js, Express, Prisma and PostgreSQL. Features JWT auth, real-time search, and double-booking prevention.",
+    stack: ["React", "Express", "Prisma", "PostgreSQL"],
+    badge: "Full-stack",
+    github: "https://github.com/nadielotiene/kenbnb",
+    live: "https://kenbnb.vercel.app",
   },
   {
     title: "Recipe App",
