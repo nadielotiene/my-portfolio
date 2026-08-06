@@ -13,7 +13,7 @@ export const projects = [
     title: "Jobtrackr",
     emoji: "🔍",
     image: "/images/jobtrackr.webp",
-    description: "Full-stack application designed to help job seekers centralize their search, replacing spreadsheets with a structured dashboard that tracks application statuses, contacts, and notes.",
+    description: "Full-stack application that replaces the spreadsheet-tracking most job seekers default to. The data model links applications, contacts, and status history so a single company record can show every touchpoint — who you talked to, what stage you're at, and what's next — without duplicate entry or orphaned notes. Built with React, TypeScript, Express, Prisma, and PostgreSQL.",
     stack: ["React", "TypeScript", "Express", "Prisma", "PostgreSQL", "Tailwind"],
     badge: "Full-stack",
     github: "https://github.com/nadielotiene/jobtrackr-app",
