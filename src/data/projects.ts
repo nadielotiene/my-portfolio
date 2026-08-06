@@ -14,7 +14,7 @@ export const projects = [
     title: "Kenbnb",
     emoji: "🏠",
     image: "/images/kenbnb.webp",
-    description: "Full-stack booking platform with JWT-based authentication and real-time search. The core challenge was preventing double-bookings under concurrent requests — handled at the database layer rather than relying on frontend checks alone.",
+    description: "Full-stack booking platform with JWT-based authentication and real-time search backed by dynamic server-side filtering. The core challenge was preventing double-bookings — solved with server-side date range overlap checks that reject conflicting bookings before they're created.",
     note: "Built specifically to tackle double-booking prevention and real auth — the parts of a booking system tutorials usually skip.",
     stack: ["React", "Express", "Prisma", "PostgreSQL"],
     badge: "Full-stack",
