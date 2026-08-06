@@ -3,13 +3,14 @@ interface Props {
   title: string;
   emoji: string;
   description: string;
+  note: string;
   stack: readonly string[];
   badge: string;
   github: string;
   live: string | null;
   image: string;
 }
-const { title, emoji, description, stack, badge, github, live, image } =
+const { title, emoji, description, note, stack, badge, github, live, image } =
   Astro.props;
 const isLive = badge === "Live";
 ---
@@ -29,6 +30,7 @@ const isLive = badge === "Live";
       <h3>{title}</h3>
     </div>
     <p>{description}</p>
+    {note && <p class="origin-note">{note}</p>}
   </div>
 
   <footer>
@@ -130,6 +132,13 @@ const isLive = badge === "Live";
     line-height: 1.6;
     color: var(--color-muted);
     flex: 1;
+  }
+
+  .origin-note {
+    font-size: 12px;
+    color: var(--color-note);
+    font-style: italic;
+    margin-top: 0.5rem;
   }
 
   footer {
